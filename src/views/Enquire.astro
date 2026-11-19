@@ -1,0 +1,16 @@
+---
+import Layout from '../components/Layout.astro';
+import Checkout from '../components/Checkout.astro';
+import { useT, type Lang } from '../i18n';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { t } = useT(lang);
+---
+<Layout lang={lang} page="enquire" title={t('meta.enquire.title')} desc={t('meta.enquire.desc')} noindex>
+  <section class="co-page">
+    <div class="wrap"><Checkout lang={lang} /></div>
+  </section>
+</Layout>
+<style>
+  .co-page { padding-top: calc(var(--header-h) + 24px); padding-bottom: clamp(40px, 6vw, 80px); background: var(--paper); }
+</style>

@@ -1,0 +1,145 @@
+---
+/**
+ * One room type, as Booking.com shows a room: its own photo gallery, the beds, who it sleeps,
+ * what is in the room, what every room includes, and a reserve box that adds the room to the
+ * shared stay and goes to the checkout. Other room types below.
+ */
+import Layout from '../components/Layout.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import PhotoMosaic from '../components/PhotoMosaic.astro';
+import { path, useT, digits, type Lang } from '../i18n';
+import { ROOMS, SITE, type Feature } from '../data/site';
+import { plural } from '../lib/stay';
+interface Props { lang: Lang; id: string }
+const { lang, id } = Astro.props;
+const { t } = useT(lang);
+const room = ROOMS.find((r) => r.id === id)!;
+const name = t(`rooms.${id}.name`);
+const icon: Record<Feature, string> = { kitchenette: 'kitchen', coffee: 'breakfast', kettle: 'kettle', fridge: 'fridge', desk: 'table', reading: 'table', dining: 'table', closet: 'wardrobe', wifi: 'wifi' };
+const sleepsText = t(room.sleeps >= 2 ? 'bk.sleeps2' : 'bk.sleeps1');
+const beds = (['double', 'single'] as const).filter((k) => room.beds[k]).map((k) => plural(t(`bk.beds.${k}`), room.beds[k]!, lang));
+const others = ROOMS.filter((r) => r.id !== id);
+const abs = (p: string) => new URL(p, SITE.url + '/').href;
+const jsonld = [
+  { '@context': 'https://schema.org', '@type': 'HotelRoom', name: `${name} — ${SITE.name.es}`, description: t(`rooms.${id}.desc`), occupancy: { '@type': 'QuantitativeValue', maxValue: room.sleeps }, containedInPlace: { '@id': `${SITE.url}/#hotel` } },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: t('nav.home'), item: abs(path(lang, 'home')) },
+    { '@type': 'ListItem', position: 2, name: t('nav.rooms'), item: abs(path(lang, 'rooms')) },
+    { '@type': 'ListItem', position: 3, name, item: abs(path(lang, 'rooms', id)) } ] },
+];
+---
+<Layout lang={lang} page="rooms" sub={id} title={`${name} — ${SITE.name[lang]}`} desc={t(`rooms.${id}.desc`)} jsonld={jsonld}>
+  <section class="rm">
+    <div class="wrap">
+      <p class="rm-crumb"><a href={path(lang, 'rooms')}>{t('nav.rooms')}</a> <Icon name="arrowRight" size={14} class="rtl-flip" /> {name}</p>
+      <h1>{name}</h1>
+      <p class="rm-sub"><Icon name="bed" size={18} /> <span>{beds.join(t('common.and'))} · <span class="nw">{t('bk.sleepsN', { n: sleepsText })}</span></span></p>
+      <PhotoMosaic items={room.photos} lang={lang} id={`pm-${id}`} compact={room.photos.length < 10} />
+
+      <div class="rm-body">
+        <div class="rm-text">
+          <p class="lead">{t(`rooms.${id}.desc`)}</p>
+          <h2>{t('bk.roomPage.facilities')}</h2>
+          <ul class="rm-feat">
+            <li class="lead"><Icon name="shower" size={20} /> {t(`bk.bath.${room.bath}`)}</li>
+            {room.features.map((f) => <li class:list={[f === 'kitchenette' && 'lead']}><Icon name={icon[f] as any} size={20} /> {t(`bk.f.${f}`)}</li>)}
+          </ul>
+          <h2>{t('bk.colChoices')}</h2>
+          <ul class="rm-inc">
+            <li><Icon name="wifi" size={18} /> <b>{t('bk.chWifi')}</b></li>
+            <li><Icon name="check" size={18} /> {t('bk.chKitchen')}</li>
+            <li><Icon name="check" size={18} /> {t('bk.chNoCard')}</li>
+            <li><Icon name="check" size={18} /> {t('bk.chConfirm')}</li>
+          </ul>
+        </div>
+        <aside class="rm-box" data-rmbox data-room={id} data-checkout={path(lang, 'enquire')}>
+          <p class="rm-price"><span>{t('bk.colPrice')}</span>{room.one ? <><strong>{t('bk.priceUsd', { n: room.one })} <em>· {t('bk.priceOne')}</em></strong>{room.two && <strong>{t('bk.priceUsd', { n: room.two })} <em>· {t('bk.priceTwo')}</em></strong>}<small>{t('bk.priceNight')}</small></> : <><strong>{t('bk.price')}</strong><small>{t('bk.priceNote')}</small></>}</p>
+          <label class="rm-qty" hidden={room.max < 2}><span>{t('bk.colSelect')}</span>
+            <select data-qty>{Array.from({ length: room.max }, (_, n) => <option value={n + 1}>{digits(n + 1, lang)}</option>)}</select>
+          </label>
+          <a class="rm-go" href={path(lang, 'enquire')} data-reserve>{t('bk.reserve')}</a>
+          <p class="rm-note"><Icon name="check" size={15} /> {t('bk.reserveNote')}</p>
+          <a class="rm-all" href={`${path(lang, 'rooms')}#availability`}>{t('bk.checkAvail')}</a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rm-others">
+    <div class="wrap">
+      <h2>{t('bk.roomPage.others')}</h2>
+      <ul class="rm-cards">
+        {others.map((r) => (
+          <li>
+            <a href={path(lang, 'rooms', r.id)}>
+              <Img id={r.hero} lang={lang} ratio="4 / 3" sizes="(min-width: 900px) 24vw, 80vw" widths={[320, 480, 640]} />
+              <strong>{t(`rooms.${r.id}.name`)}</strong>
+              <span>{t(`rooms.${r.id}.short`)}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import { readStay, writeStay, toQuery } from '../lib/stay';
+  document.querySelectorAll<HTMLElement>('[data-rmbox]').forEach((box) => {
+    const id = box.dataset.room!;
+    const sel = box.querySelector<HTMLSelectElement>('[data-qty]')!;
+    const go = box.querySelector<HTMLAnchorElement>('[data-reserve]')!;
+    const s = readStay();
+    if (s.rooms[id]) sel.value = String(Math.min(s.rooms[id], sel.options.length));
+    const href = () => { const x = readStay(); go.href = `${box.dataset.checkout}?${toQuery({ ...x, rooms: { ...x.rooms, [id]: Number(sel.value) } })}`; };
+    sel.addEventListener('change', href);
+    go.addEventListener('click', () => { const x = readStay(); writeStay({ ...x, rooms: { ...x.rooms, [id]: Number(sel.value) } }, 'room'); href(); });
+    href();
+  });
+</script>
+
+<style>
+  .rm { padding-top: calc(var(--header-h) + 24px); padding-bottom: clamp(32px, 6vw, 64px); }
+  .rm-crumb { margin: 0 0 8px; display: flex; align-items: center; gap: 6px; font-size: 0.9rem; color: var(--muted); }
+  .rm-crumb a { color: var(--gold-text); font-weight: 600; padding: 10px 4px; margin: -10px -4px; }
+  .rm h1 { font-size: clamp(2rem, 6vw, 3.4rem); }
+  .rm-sub { margin: 8px 0 18px; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; font-weight: 600; color: var(--ink); }
+  .rm-sub :global(.icon) { color: var(--gold-text); flex: none; margin-top: 0.15em; }
+  .rm-sub .nw { white-space: nowrap; }
+  .rm-body { display: grid; gap: 28px; margin-top: 28px; }
+  .rm-text h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin: 24px 0 12px; }
+  .rm-feat { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 20px; }
+  .rm-feat li { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+  .rm-feat :global(.icon) { color: var(--gold-text); flex: none; }
+  .rm-feat li.lead { font-weight: 700; }
+  .rm-inc { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .rm-inc li { display: flex; align-items: center; gap: 8px; color: var(--body); }
+  .rm-inc :global(.icon) { color: var(--wa); flex: none; }
+  .rm-inc b { color: var(--wa); }
+  .rm-box { display: grid; gap: 12px; padding: 18px; background: var(--white); border: 1px solid var(--line); border-radius: 6px; box-shadow: var(--shadow); align-self: start; }
+  .rm-price { margin: 0; display: grid; }
+  .rm-price span, .rm-qty span { font-size: 0.8rem; font-weight: 700; color: var(--muted); }
+  .rm-price strong { font-size: 1.3rem; color: var(--ink); }
+  .rm-price small { color: var(--muted); }
+  .rm-qty { display: grid; gap: 4px; }
+  .rm-qty select { min-height: 48px; cursor: pointer; padding: 6px 10px; border: 1px solid var(--muted); border-radius: 4px; background: var(--white); font: inherit; font-weight: 700; color: var(--ink); }
+  .rm-go { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; border-radius: 4px; background: var(--ink); color: var(--cream); font-weight: 700; font-size: 1.05rem; text-decoration: none; }
+  .rm-go:hover { background: var(--night-2); }
+  .rm-note { margin: 0; display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--body); }
+  .rm-note :global(.icon) { color: var(--wa); }
+  .rm-all { font-weight: 700; color: var(--gold-text); font-size: 0.92rem; }
+  @media (max-width: 899px) { .rm-box { order: -1; } }
+  @media (min-width: 900px) { .rm-body { grid-template-columns: 1fr 320px; gap: 48px; } .rm-box { position: sticky; top: calc(var(--header-h) + 16px); } }
+  .rm-others { background: var(--paper); }
+  .rm-others h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin-bottom: 20px; }
+  .rm-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, calc(50% - 8px)), 1fr)); gap: 24px 16px; }
+  .rm-cards a { display: grid; gap: 6px; align-content: start; text-decoration: none; color: inherit; }
+  .rm-cards a:hover strong { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+  .rm-cards strong { font-family: var(--display); font-size: 1.3rem; line-height: 1.2; color: var(--ink); margin-top: 4px; }
+  
+  .rm-cards span { color: var(--muted); font-size: 0.92rem; }
+  @media (max-width: 599px) { .rm-cards strong { font-size: 1.15rem; } .rm-cards span { font-size: 0.85rem; } }
+  .rm-price em { font-style: normal; font-weight: 600; font-size: 0.85rem; color: var(--muted); }
+  .rm-qty[hidden] { display: none; }
+</style>

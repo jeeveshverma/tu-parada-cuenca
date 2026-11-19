@@ -1,0 +1,353 @@
+{
+  "meta": {
+    "home": {
+      "title": "Tu Parada en Cuenca — guest house near Parque Calderón",
+      "desc": "A family guest house in Cuenca, Ecuador: four rooms with private bathrooms, a shared kitchen, fibre Wi‑Fi and luggage storage, a few minutes on foot from Parque Calderón. Book direct on WhatsApp."
+    },
+    "rooms": {
+      "title": "Rooms and availability — Tu Parada en Cuenca",
+      "desc": "Mini Suite AB, Mini Suite VT, Eco Room and Master Suite: photos, beds, what is in each one and the nightly rate. Choose your dates and book direct with the house."
+    },
+    "gallery": {
+      "title": "Photos — Tu Parada en Cuenca",
+      "desc": "The four rooms, the bathrooms, the living room, the shared kitchen, the patio and Miau, the house cat."
+    },
+    "casa": {
+      "title": "The house, the family and the neighbourhood — Tu Parada en Cuenca",
+      "desc": "Who lives in the house, the house rules, luggage storage, Spanish classes, the translator and how many minutes on foot everything is."
+    },
+    "enquire": {
+      "title": "Book — Tu Parada en Cuenca",
+      "desc": "Your rooms, your details, and the request sent to the house on WhatsApp. Nothing is charged on this website."
+    },
+    "notfound": {
+      "title": "Page not found — Tu Parada en Cuenca",
+      "desc": "That page does not exist."
+    }
+  },
+  "nav": {
+    "skip": "Skip to content",
+    "home": "Home",
+    "rooms": "Rooms",
+    "gallery": "Photos",
+    "casa": "The house",
+    "enquire": "Book",
+    "menu": "Menu",
+    "close": "Close",
+    "lang": "Español",
+    "langLabel": "Switch language",
+    "whatsapp": "WhatsApp",
+    "call": "Call",
+    "contact": "Contact",
+    "follow": "Follow us"
+  },
+  "hero": {
+    "eyebrow": "Guest house · Cuenca · Ecuador",
+    "title": "A family home, {min} minutes on foot from Parque Calderón",
+    "lead": "Four rooms with private bathrooms in the house where we live: my husband, our two daughters, Miau the cat and me. The kitchen, the dining room, the living room and the patio are shared. Stay a night, or ask about the monthly rate.",
+    "cta": "Write to us on WhatsApp",
+    "photoCaption": "Master Suite",
+    "here": "Your stop"
+  },
+  "sections": {
+    "rooms": "The rooms",
+    "gallery": "Photos",
+    "line": "How many minutes away everything is",
+    "house": "A shared home",
+    "luggage": "Luggage storage",
+    "long": "Staying a month or longer",
+    "rules": "Living together",
+    "services": "What we can help with",
+    "arrive": "Getting here",
+    "practical": "The practical part"
+  },
+  "rooms": {
+    "intro": "Four rooms, each with its own private bathroom, fibre Wi‑Fi, a fridge and a desk. Three have the bathroom inside; the Eco Room has its own just across the corridor.",
+    "all": "All rooms",
+    "shared": "What is shared",
+    "sharedText": "The living room with its fireplace, the equipped kitchen, the dining room and the patio with a barbecue belong to everyone: the family and the guests. Cook your own food, eat at the big table and, if you like, talk.",
+    "mini-suite-ab": {
+      "name": "Mini Suite AB",
+      "short": "A single bed, a counter with a sink, and the bathroom inside",
+      "desc": "For one person. A single bed, a counter with a sink, kettle, toaster and fridge, a work desk, and the bathroom inside the suite."
+    },
+    "mini-suite-vt": {
+      "name": "Mini Suite VT",
+      "short": "A double bed, a mini kitchen and the bathroom inside",
+      "desc": "For one or two people. A double bed, a mini kitchen with a blender, kettle and crockery, a desk, a fridge, and the bathroom inside the suite."
+    },
+    "eco": {
+      "name": "Eco Room",
+      "short": "A double bed for one person, private bathroom across the corridor",
+      "desc": "For one person. A double bed, a fridge, a kettle and a desk. The bathroom is private and is right across from the room."
+    },
+    "master-suite": {
+      "name": "Master Suite",
+      "short": "A double bed, a large closet, a dining table and the bathroom inside",
+      "desc": "The largest room, for one or two people. A double bed, a wall-to-wall closet, a work desk and a reading desk, a dining table, a fridge, a coffee corner, and the bathroom inside the suite."
+    }
+  },
+  "gallery": {
+    "intro": "The photos are the house's own, as it is. The rooms first, then the bathrooms and the shared spaces.",
+    "all": "All",
+    "room": "Rooms",
+    "bathroom": "Bathrooms",
+    "house": "The house",
+    "counter": "{n} / {total}",
+    "open": "Open photo",
+    "close": "Close",
+    "prev": "Previous photo",
+    "next": "Next photo",
+    "drag": "Drag"
+  },
+  "line": {
+    "text": "The house is at Estévez de Toral and Pío Bravo, on the northern edge of the historic centre. Distances are measured from the door; minutes are at a normal walking pace.",
+    "here": "Your stop",
+    "hereSub": "Estévez de Toral 13-90",
+    "onFoot": "{min} min on foot",
+    "metres": "{m} m",
+    "km": "{km} km",
+    "walk": "On foot",
+    "ride": "By tram, bus or taxi",
+    "near": "Two blocks from the SuperAki supermarket and a few steps from an ATM, bakeries, a restaurant, a pharmacy, a fruit shop and a laundry.",
+    "open": "Open in Google Maps",
+    "directions": "Directions"
+  },
+  "house": {
+    "text": "It is not a hotel: it is our home. My husband and my two daughters welcome you as part of the family, and the whole property is shared between hosts and guests.",
+    "cat": "Miau is the house cat. He is very affectionate and usually comes to greet whoever arrives.",
+    "guests": "Guests from Russia, Germany, England, France, Chile and the United States have sat at the table.",
+    "more": "See the house"
+  },
+  "long": {
+    "text": "If you are coming to Cuenca for a month or more — to work remotely, to study Spanish or to sort out your visa — ask about the monthly rate.",
+    "wifi": "{down} Mbps down and {up} up, measured in the house",
+    "wifiLabel": "Fibre Wi‑Fi",
+    "desk": "A desk in every room",
+    "kitchen": "A shared kitchen to cook your own food",
+    "discount": "{percent}% off from {nights} nights",
+    "ask": "Ask about the monthly rate",
+    "waMonthly": "Hello Tu Parada en Cuenca, I'd like to ask about the monthly rate."
+  },
+  "luggage": {
+    "text": "Arriving early, leaving late or just passing through? Leave your bags at the house and see Cuenca without the weight. You don't need to be staying with us.",
+    "hours": "Every day, {open} to {close}",
+    "perDay": "US${n} a day",
+    "xs": { "name": "Very small", "what": "Small bags, tote bags" },
+    "s": { "name": "Small", "what": "Small backpacks" },
+    "m": { "name": "Medium", "what": "Hand luggage, cabin cases" },
+    "l": { "name": "Large", "what": "Suitcases, checked luggage" },
+    "ask": "Tell the house I'm bringing bags",
+    "wa": "Hello Tu Parada en Cuenca, I'd like to leave luggage at the house."
+  },
+  "rules": {
+    "intro": "We look after this home so everyone has a quiet stay.",
+    "items": [
+      ["No smoking", "Anywhere in the house."],
+      ["Slippers", "Slippers are worn inside the house."],
+      ["No drugs or alcohol", "For a healthy and respectful stay together."],
+      ["Quiet from 23:00", "So everyone can rest."],
+      ["The house wakes at 6:00", "That is when the day starts here."],
+      ["Keep your room clean", "We look after the home together."],
+      ["Kitchen, dining room and living room", "They are shared: use them with care and respect."],
+      ["There is a cat", "Miau lives here and will welcome you too."]
+    ]
+  },
+  "services": {
+    "items": [
+      ["Spanish–English translator", "She goes with you to visa paperwork, shopping, medical appointments and bank appointments."],
+      ["Spanish classes", "In the house, at your pace."],
+      ["Painting and cooking", "Activities with the family."],
+      ["Planned outings", "Organised trips around Cuenca and nearby."]
+    ],
+    "ask": "Ask about a service",
+    "wa": "Hello Tu Parada en Cuenca, I'd like to ask about your services."
+  },
+  "arrive": {
+    "tram": "By tram: get off at the {stop} stop, {min} minutes away on foot.",
+    "bus": "By city bus: lines 8 and 27 stop on Pío Bravo, round the corner from the house.",
+    "terminal": "From the bus terminal (Terminal Terrestre): {km} km.",
+    "airport": "From Mariscal Lamar Airport: {km} km."
+  },
+  "enquire": {
+    "waIntro": "Hello Tu Parada en Cuenca, I'd like to ask about a stay."
+  },
+  "footer": {
+    "address": "Estévez de Toral 13-90 and Pío Bravo, Cuenca, Ecuador",
+    "rights": "Tu Parada en Cuenca",
+    "maps": "Google Maps",
+    "hours": "Open {open} to {close}, Monday to Sunday",
+    "wa247": "WhatsApp 24 hours",
+    "where": "Where we are"
+  },
+  "notfound": {
+    "title": "This page is not here",
+    "text": "The link may be old. The rooms and the photos are one tap away.",
+    "home": "Back to the start"
+  },
+  "common": {
+    "photoOf": "Photo of {what}",
+    "section": "Section",
+    "back": "Back",
+    "and": " and "
+  },
+  "bk": {
+    "search": "Search",
+    "checkAvail": "Check availability",
+    "guests": "Guests",
+    "checkin": "Check-in",
+    "checkout": "Check-out",
+    "adults": "Adults",
+    "children": "Children",
+    "childrenHint": "Ages 0–12",
+    "done": "Done",
+    "adultsN": "1 adult|{n} adults",
+    "childrenN": "1 child|{n} children",
+    "noChildren": "no children",
+    "nightsN": "1 night|{n} nights",
+    "roomsN": "1 room|{n} rooms",
+    "photosN": "1 photo|{n} photos",
+    "guestsN": "1 person|{n} people",
+    "availTitle": "Availability",
+    "availFor": "{nights} · {in} – {out} · {party}",
+    "changeSearch": "Change search",
+    "colRoom": "Room",
+    "colSleeps": "For",
+    "colPrice": "Rate per night",
+    "colChoices": "Included",
+    "colSelect": "Select",
+    "price": "On request",
+    "priceNote": "We tell you the rate on WhatsApp",
+    "priceUsd": "US${n}",
+    "priceOne": "1 person",
+    "priceTwo": "2 people",
+    "priceNight": "per night",
+    "chWifi": "Fibre Wi‑Fi included",
+    "chKitchen": "Shared kitchen, living room and patio",
+    "chNoCard": "Nothing is charged on this website",
+    "chConfirm": "The house confirms on WhatsApp",
+    "reserve": "Book",
+    "reserveNote": "Nothing is charged on this website",
+    "selected": "{rooms} for {nights}",
+    "selNone": "Choose a room to continue",
+    "capacity": "These rooms are for {n}, and you are {m}. Add a room or change the number of guests.",
+    "pickRoom": "Choose at least one room.",
+    "sleepsN": "For {n}",
+    "sleeps1": "1 person",
+    "sleeps2": "1 or 2 people",
+    "roomDetails": "See the room",
+    "bath": {
+      "ensuite": "Private bathroom inside",
+      "across": "Private bathroom across the corridor"
+    },
+    "taken": "Booked on these dates",
+    "takenNote": "Try other dates or another room.",
+    "feedOff": "The house confirms availability on WhatsApp.",
+    "q": {
+      "nightly": "{rate} × {nights}",
+      "discount": "Long-stay discount ({percent}%)",
+      "total": "Estimated total",
+      "onRequest": "The house sends you the total on WhatsApp",
+      "note": "The house confirms the total."
+    },
+    "beds": {
+      "double": "1 double bed|{n} double beds",
+      "single": "1 single bed|{n} single beds"
+    },
+    "f": {
+      "kitchenette": "Mini kitchen",
+      "coffee": "Coffee corner",
+      "kettle": "Kettle",
+      "fridge": "Fridge",
+      "desk": "Work desk",
+      "reading": "Reading desk",
+      "dining": "Dining table",
+      "closet": "Large closet",
+      "wifi": "Fibre Wi‑Fi"
+    },
+    "steps": [
+      "Your selection",
+      "Your details",
+      "Final step"
+    ],
+    "yourBooking": "Your booking",
+    "totalStay": "Length of stay",
+    "youSelected": "You selected",
+    "change": "Change your selection",
+    "editDates": "Change dates",
+    "detailsTitle": "Your details",
+    "detailsLead": "Almost done. Fill in the details below; the next step shows the request before it goes.",
+    "first": "First name",
+    "last": "Last name",
+    "email": "Email address",
+    "optional": "optional",
+    "phone": "Mobile number, with country code",
+    "phoneHint": "The house replies on WhatsApp to this number.",
+    "arrival": "Your arrival time",
+    "arrivalHint": "The house is open {open} to {close}, every day.",
+    "arrivalUnknown": "I don't know yet",
+    "arrivalLate": "After 22:00",
+    "luggage": "Luggage",
+    "luggageYes": "I'd like to leave luggage before check-in or after check-out",
+    "requests": "Anything else",
+    "requestsPh": "A month's stay, Spanish classes, a late arrival…",
+    "requestsHint": "The house will say what it can do.",
+    "next": "Next: final step",
+    "back": "Back",
+    "finalTitle": "Check your request",
+    "finalLead": "Nothing is charged here. When you send this, WhatsApp opens with the request written out; the house replies with availability and the total, and the booking is made when they confirm it.",
+    "send": "Send on WhatsApp",
+    "copy": "Copy the request",
+    "copied": "Copied",
+    "or": "or call {phone}",
+    "errRooms": "Choose at least one room.",
+    "errName": "Please enter your first and last name.",
+    "errPhone": "Please enter a mobile number with the country code, e.g. +1 956 555 0123.",
+    "errEmail": "That email address doesn't look right.",
+    "wa": {
+      "intro": "Hello Tu Parada en Cuenca, I'd like to book:",
+      "in": "Check-in",
+      "out": "Check-out",
+      "stay": "Stay",
+      "guests": "Guests",
+      "rooms": "Rooms",
+      "total": "Estimated total on the website",
+      "name": "Name",
+      "phone": "Mobile",
+      "email": "Email",
+      "arrival": "Arrival",
+      "luggage": "Luggage storage",
+      "req": "Notes",
+      "from": "Sent from the website"
+    },
+    "hl": {
+      "title": "What matters most",
+      "walk": "{min} minutes on foot from Parque Calderón",
+      "bath": "A private bathroom for each of the four rooms",
+      "wifi": "{down} Mbps fibre",
+      "shared": "Kitchen, living room with a fireplace, patio with a barbecue",
+      "long": "A monthly rate for long stays"
+    },
+    "fac": {
+      "title": "In the house",
+      "wifi": "Fibre Wi‑Fi",
+      "kitchen": "Shared kitchen",
+      "living": "Living room",
+      "bbq": "Patio and barbecue",
+      "luggage": "Luggage storage",
+      "spanish": "Spanish classes",
+      "translator": "Translator",
+      "cat": "A cat in the house"
+    },
+    "showMap": "Show on map",
+    "reserveBtn": "Book",
+    "allPhotos": "All {n} photos",
+    "roomPage": {
+      "facilities": "In the room",
+      "bedsTitle": "Beds",
+      "reserveThis": "Book this room",
+      "others": "Other rooms"
+    },
+    "endLead": "Choose your dates and room, add your details, and the request goes to the house on WhatsApp. Nothing is charged on this website: the house replies with availability and the total."
+  }
+}

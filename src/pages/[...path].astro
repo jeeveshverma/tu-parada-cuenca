@@ -1,0 +1,32 @@
+---
+import { LANGS, SLUG, type Lang, type PageKey } from '../i18n';
+import { ROOMS } from '../data/site';
+import Home from '../views/Home.astro';
+import Rooms from '../views/Rooms.astro';
+import Room from '../views/Room.astro';
+import Gallery from '../views/Gallery.astro';
+import Casa from '../views/Casa.astro';
+import Enquire from '../views/Enquire.astro';
+
+export function getStaticPaths() {
+  const out: { params: { path: string | undefined }; props: { lang: Lang; page: PageKey; sub?: string } }[] = [];
+  for (const { code: lang } of LANGS) {
+    const pre = lang === 'en' ? 'en/' : '';
+    const add = (page: PageKey, sub?: string) => out.push({ params: { path: (pre + SLUG[lang][page] + (sub ? `${sub}/` : '')).replace(/\/$/, '') || undefined }, props: { lang, page, sub } });
+    add('home');
+    add('rooms');
+    for (const r of ROOMS) add('rooms', r.id);
+    add('gallery');
+    add('casa');
+    add('enquire');
+  }
+  return out;
+}
+const { lang, page, sub } = Astro.props;
+---
+{page === 'home' && <Home lang={lang} />}
+{page === 'rooms' && !sub && <Rooms lang={lang} />}
+{page === 'rooms' && sub && <Room lang={lang} id={sub} />}
+{page === 'gallery' && <Gallery lang={lang} />}
+{page === 'casa' && <Casa lang={lang} />}
+{page === 'enquire' && <Enquire lang={lang} />}

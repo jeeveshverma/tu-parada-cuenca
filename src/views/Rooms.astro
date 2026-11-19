@@ -1,0 +1,48 @@
+---
+import Layout from '../components/Layout.astro';
+import SearchBox from '../components/SearchBox.astro';
+import Availability from '../components/Availability.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import { useT, type Lang } from '../i18n';
+import { waUrl } from '../lib/wa';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { t } = useT(lang);
+---
+<Layout lang={lang} page="rooms" title={t('meta.rooms.title')} desc={t('meta.rooms.desc')}>
+  <section class="rooms-head">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="num">{t('nav.rooms')}</span>
+        <h1>{t('sections.rooms')}</h1>
+        <p class="lead">{t('rooms.intro')}</p>
+      </div>
+      <SearchBox lang={lang} id="search" />
+    </div>
+  </section>
+  <Availability lang={lang} searchId="search" />
+  <section class="section bath">
+    <div class="wrap bath-in">
+      <div class="bath-text rv">
+        <h2>{t('rooms.shared')}</h2>
+        <p class="lead">{t('rooms.sharedText')}</p>
+        <a class="btn btn-wa" href={waUrl(t('enquire.waIntro'))} target="_blank" rel="noopener"><Icon name="whatsapp" /> {t('hero.cta')}</a>
+      </div>
+      <div class="bath-photos">
+        <div class="rv"><Img id="cocina" lang={lang} ratio="1 / 1" sizes="(min-width: 960px) 240px, 44vw" widths={[240, 360]} /></div>
+        <div class="rv rv-d2"><Img id="sala" lang={lang} ratio="1 / 1" sizes="(min-width: 960px) 240px, 44vw" widths={[240, 360]} /></div>
+      </div>
+    </div>
+  </section>
+</Layout>
+<style>
+  .rooms-head { padding-top: calc(var(--header-h) + 32px); padding-bottom: 28px; }
+  .rooms-head .section-head { margin-bottom: 24px; }
+  .bath-in { display: grid; gap: 32px; }
+  .bath-text { display: grid; gap: 14px; justify-items: start; }
+  .bath-photos { display: grid; grid-template-columns: repeat(2, minmax(0, 240px)); gap: 20px; align-items: start; }
+  .bath-photos :global(.photo) { border-radius: 6px; }
+  .bath-photos > :nth-child(2) { margin-top: 48px; }
+  @media (min-width: 960px) { .bath-in { grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; } }
+</style>

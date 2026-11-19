@@ -1,0 +1,191 @@
+---
+import Layout from '../components/Layout.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import SearchBox from '../components/SearchBox.astro';
+import Property from '../components/Property.astro';
+import Availability from '../components/Availability.astro';
+import Linea from '../components/Linea.astro';
+import Luggage from '../components/Luggage.astro';
+import { PHOTOS, photo } from '../data/photos';
+import { place } from '../data/places';
+import { SITE } from '../data/site';
+import { fromHotel } from '../lib/geo';
+import { path, useT, type Lang } from '../i18n';
+import { waUrl } from '../lib/wa';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { t } = useT(lang);
+const wa = waUrl(t('enquire.waIntro'));
+const min = fromHotel(place('calderon').at).min;
+// the gallery: the sharpest photos first (the big tile and the four beside it), then every other one
+const lead = ['ms-bed', 'vt-bed', 'mesa', 'eco-bed', 'ms-dining', 'ab-bed', 'ms-window', 'vt-kitchen', 'eco-window', 'ms-closet'];
+const mosaic = [...lead, ...PHOTOS.map((p) => p.id).filter((id) => !lead.includes(id))];
+const num = (n: number) => String(n).padStart(2, '0');
+---
+<Layout lang={lang} page="home" title={t('meta.home.title')} desc={t('meta.home.desc')}>
+  <!-- Hero: the sentence that says what this is and where, the stop marker, one photo -->
+  <section class="hero" id="top">
+    <div class="wrap hero-in">
+      <div class="hero-text">
+        <p class="eyebrow">{t('hero.eyebrow')}</p>
+        <h1 class="hero-title">{t('hero.title', { min })}</h1>
+        <div class="hero-cta">
+          <a class="btn btn-lg hero-book" href="#availability">{t('bk.checkAvail')} <Icon name="arrowRight" size={18} /></a>
+          <a class="btn btn-ghost hero-wa" href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" /> {t('hero.cta')}</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <Img id="ms-wide" lang={lang} priority ratio="4 / 3" sizes="(min-width: 960px) 52vw, 100vw" widths={[480, 720, 960, 1200]} quality={70} />
+        <figcaption><span class="hero-stop" aria-hidden="true"></span>{t('hero.here')} · {t('line.hereSub')}</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="wrap sb-wrap"><SearchBox lang={lang} id="search" /></div>
+
+  <Property lang={lang} mosaic={mosaic} />
+
+  <Availability lang={lang} searchId="search" />
+
+  <!-- the line: the house as a stop, everything else by minutes on foot -->
+  <section class="section linesec" id="linea">
+    <div class="wrap line-in">
+      <div class="section-head rv">
+        <span class="num">{num(1)}</span>
+        <h2>{t('sections.line')}</h2>
+        <p class="lead">{t('line.text')}</p>
+      </div>
+      <div class="rv rv-d1"><Linea lang={lang} compact /></div>
+    </div>
+  </section>
+
+  <!-- a shared home -->
+  <section class="section housesec" id="casa">
+    <div class="wrap house-in">
+      <div class="house-photo house-a rv"><Img id="mesa" lang={lang} ratio="4 / 3" sizes="(min-width: 960px) 44vw, 100vw" widths={[480, 720, 960, 1280]} /><p class="caption">{photo('mesa').caption![lang]}</p></div>
+      <div class="house-text rv rv-d1">
+        <span class="num">{num(2)}</span>
+        <h2>{t('sections.house')}</h2>
+        <p class="lead">{t('house.text')}</p>
+        <p>{t('house.guests')}</p>
+        <div class="house-cat">
+          <Img id="miau" lang={lang} ratio="1 / 1" sizes="96px" widths={[192, 300]} />
+          <p>{t('house.cat')}</p>
+        </div>
+        <p><a class="btn btn-ghost" href={path(lang, 'casa')}>{t('house.more')} <Icon name="arrowRight" size={18} /></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- a month or longer -->
+  <section class="section longsec" id="mes">
+    <div class="wrap long-in">
+      <div class="section-head rv">
+        <span class="num">{num(3)}</span>
+        <h2>{t('sections.long')}</h2>
+        <p class="lead">{t('long.text')}</p>
+        <p><a class="btn btn-wa" href={waUrl(t('long.waMonthly'))} target="_blank" rel="noopener"><Icon name="whatsapp" /> {t('long.ask')}</a></p>
+      </div>
+      <div class="long-facts rv rv-d1">
+        <div class="speed" role="img" aria-label={`${t('long.wifiLabel')}: ${t('long.wifi', { down: SITE.wifi.down, up: SITE.wifi.up })}`}>
+          <span class="speed-n">{SITE.wifi.down}</span>
+          <span class="speed-u">Mbps</span>
+          <span class="speed-l">{t('long.wifiLabel')}</span>
+        </div>
+        <ul>
+          <li>{t('long.wifi', { down: SITE.wifi.down, up: SITE.wifi.up })}</li>
+          <li>{t('long.desk')}</li>
+          <li>{t('long.kitchen')}</li>
+          {SITE.longStay && <li><b>{t('long.discount', { percent: SITE.longStay.percent, nights: SITE.longStay.nights })}</b></li>}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- luggage storage -->
+  <section class="section lugsec" id="equipaje">
+    <div class="wrap">
+      <div class="section-head rv">
+        <span class="num">{num(4)}</span>
+        <h2>{t('sections.luggage')}</h2>
+        <p class="lead">{t('luggage.text')}</p>
+      </div>
+      <div class="rv rv-d1"><Luggage lang={lang} /></div>
+    </div>
+  </section>
+
+  <!-- the last word: back to the rooms -->
+  <section class="section endcta">
+    <div class="wrap endcta-in">
+      <h2>{t('bk.checkAvail')}</h2>
+      <p class="lead">{t('bk.endLead')}</p>
+      <p><a class="btn btn-lg" href="#search">{t('bk.search')} <Icon name="arrowRight" size={18} /></a> <a class="btn btn-ghost" href={wa} target="_blank" rel="noopener"><Icon name="whatsapp" /> {t('hero.cta')}</a></p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ---- hero: the sentence on paper, one photo with the stop marker under it ---- */
+  .hero { padding-top: calc(var(--header-h) + 20px); padding-bottom: 76px; }
+  .hero-in { display: grid; gap: 24px; }
+  .hero-text { display: grid; gap: 14px; align-content: center; }
+  .hero-title { font-size: clamp(2.3rem, 8.6vw, 4.6rem); max-width: 13em; text-wrap: balance; }
+  .hero-cta { display: grid; gap: 6px; margin-top: 6px; }
+  .hero-book { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+  .hero-book:hover { background: var(--gold-light); }
+  .hero-wa { justify-content: start; justify-self: start; padding-inline: 0; }
+  .hero-photo { margin: 0; }
+  .hero-photo :global(.photo) { border-radius: 6px; }
+  .hero-photo figcaption { display: flex; align-items: center; gap: 10px; margin-top: 12px; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em; color: var(--ink); }
+  .hero-stop { width: 18px; height: 18px; border-radius: 50%; background: var(--gold); border: 4px solid var(--ink); flex: none; }
+  @media (min-width: 560px) { .hero-cta { grid-auto-flow: column; justify-content: start; align-items: center; gap: 24px; } }
+  @media (min-width: 960px) {
+    .hero { padding-top: calc(var(--header-h) + 40px); padding-bottom: 96px; }
+    .hero-in { grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+    .hero-title { font-size: clamp(2.8rem, 4.4vw, 4.6rem); }
+  }
+  .sb-wrap { margin-top: -52px; position: relative; z-index: 4; }
+
+  .linesec { background: var(--cream); }
+  .line-in { display: grid; gap: 8px; }
+  @media (min-width: 960px) { .line-in { grid-template-columns: 5fr 6fr; gap: 72px; align-items: start; } .line-in .section-head { position: sticky; top: calc(var(--header-h) + 24px); } }
+
+  .housesec { background: var(--paper); }
+  .house-in { display: grid; gap: 28px; }
+  .house-photo :global(.photo) { border-radius: 6px; }
+  .house-photo .caption { margin: 10px 0 0; }
+  .house-text { display: grid; gap: 12px; align-content: start; max-width: 36em; }
+  .house-text .num, .long-in .num { display: flex; align-items: center; gap: 12px; }
+  .house-text .num::after { content: ''; height: 1px; width: 48px; background: var(--gold); opacity: 0.7; }
+  .house-text p { margin: 0; }
+  .house-cat { display: grid; grid-template-columns: 84px 1fr; gap: 14px; align-items: center; padding-block: 12px; border-block: 1px solid var(--line); }
+  .house-cat :global(.photo) { border-radius: 50%; }
+  .house-text .btn-ghost { padding-inline: 0; }
+  @media (min-width: 960px) { .house-in { grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; } }
+
+  .longsec { background: var(--night); color: var(--cream); }
+  .longsec h2 { color: var(--cream); }
+  .longsec .lead { color: rgba(246, 239, 228, 0.86); }
+  .longsec .num { color: var(--gold-light); }
+  .long-in { display: grid; gap: 28px; }
+  .long-in .section-head { margin: 0; }
+  .long-facts { display: grid; gap: 20px; align-content: start; }
+  .speed { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: baseline; padding-bottom: 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
+  .speed-n { font-family: var(--display); font-weight: 600; font-size: clamp(4.4rem, 16vw, 7rem); line-height: 0.9; color: var(--gold-light); grid-row: span 2; font-variant-numeric: lining-nums; }
+  .speed-u { font-weight: 800; font-size: 1.2rem; letter-spacing: 0.06em; align-self: end; }
+  .speed-l { font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(246, 239, 228, 0.7); align-self: start; }
+  .long-facts ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .long-facts li { padding-inline-start: 22px; position: relative; }
+  .long-facts li::before { content: ''; position: absolute; inset-inline-start: 0; top: 0.62em; width: 10px; height: 10px; border-radius: 50%; border: 3px solid var(--gold-light); }
+  .long-facts b { color: var(--gold-light); }
+  @media (min-width: 960px) { .long-in { grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; } }
+
+  .lugsec { background: var(--cream); }
+
+  .endcta { background: var(--gold-pale); }
+  .endcta-in { display: grid; gap: 14px; justify-items: start; }
+  .endcta-in > * { max-width: 40rem; }
+  .endcta p:last-child { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; margin: 8px 0 0; }
+  .endcta .btn-ghost { padding-inline: 0; }
+</style>

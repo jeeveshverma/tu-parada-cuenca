@@ -1,0 +1,21 @@
+{
+ "rooms": [
+  { "id": "mini-suite-ab", "one": null, "two": null, "count": 1 },
+  { "id": "mini-suite-vt", "one": 18, "two": 35, "count": 1 },
+  { "id": "eco", "one": null, "two": null, "count": 1 },
+  { "id": "master-suite", "one": null, "two": null, "count": 1 }
+ ],
+ "longStay": { "nights": 30, "percent": 15 },
+ "luggage": [
+  { "id": "xs", "price": 1 },
+  { "id": "s", "price": 2 },
+  { "id": "m", "price": 4 },
+  { "id": "l", "price": 5 }
+ ],
+ "contact": {
+  "phone": "+593 99 955 1028",
+  "whatsapp": "+593 99 955 1028",
+  "email": "guesthouse.tuparadacue@gmail.com"
+ },
+ "availabilityUrl": ""
+}

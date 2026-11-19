@@ -1,0 +1,113 @@
+---
+/** The house page: who lives here, the rules, what the family helps with, luggage storage, and the line of stops around the door. */
+import Layout from '../components/Layout.astro';
+import Img from '../components/Img.astro';
+import Icon from '../components/Icon.astro';
+import Linea from '../components/Linea.astro';
+import Luggage from '../components/Luggage.astro';
+import { photo } from '../data/photos';
+import { place } from '../data/places';
+import { fromHotel, fmtKm } from '../lib/geo';
+import { path, useT, type Lang } from '../i18n';
+import { waUrl } from '../lib/wa';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { t, list } = useT(lang);
+const rules = list<[string, string]>('rules.items');
+const services = list<[string, string]>('services.items');
+const tram = fromHotel(place('tram').at);
+const km = (id: string) => fmtKm(fromHotel(place(id).at).km, lang);
+const shared = ['sala', 'cocina', 'patio'];
+---
+<Layout lang={lang} page="casa" title={t('meta.casa.title')} desc={t('meta.casa.desc')}>
+  <section class="cs-head">
+    <div class="wrap cs-head-in">
+      <div class="section-head">
+        <span class="num">{t('nav.casa')}</span>
+        <h1>{t('sections.house')}</h1>
+        <p class="lead">{t('house.text')}</p>
+        <p>{t('house.guests')}</p>
+      </div>
+      <div class="cs-photo"><Img id="mesa" lang={lang} priority ratio="4 / 3" sizes="(min-width: 960px) 46vw, 100vw" widths={[480, 720, 960, 1280]} /><p class="caption">{photo('mesa').caption![lang]}</p></div>
+    </div>
+  </section>
+
+  <section class="section cs-shared">
+    <div class="wrap">
+      <div class="section-head rv"><h2>{t('rooms.shared')}</h2><p class="lead">{t('rooms.sharedText')}</p></div>
+      <ul class="cs-tiles">
+        {shared.map((id, i) => <li class={`rv rv-d${i + 1}`}><Img id={id} lang={lang} ratio="1 / 1" sizes="(min-width: 720px) 220px, 30vw" widths={[240, 360]} /><span>{photo(id).caption![lang]}</span></li>)}
+        <li class="rv rv-d3"><Img id="miau" lang={lang} ratio="1 / 1" sizes="(min-width: 720px) 220px, 30vw" widths={[240, 300]} /><span>{photo('miau').caption![lang]}</span></li>
+      </ul>
+      <p class="cs-cat rv">{t('house.cat')}</p>
+    </div>
+  </section>
+
+  <section class="section cs-rules" id="convivencia">
+    <div class="wrap cs-two">
+      <div class="section-head rv"><h2>{t('sections.rules')}</h2><p class="lead">{t('rules.intro')}</p></div>
+      <dl class="cs-list rv rv-d1">{rules.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+    </div>
+  </section>
+
+  <section class="section cs-serv" id="servicios">
+    <div class="wrap cs-two">
+      <div class="section-head rv">
+        <h2>{t('sections.services')}</h2>
+        <p><a class="btn btn-wa" href={waUrl(t('services.wa'))} target="_blank" rel="noopener"><Icon name="whatsapp" /> {t('services.ask')}</a></p>
+      </div>
+      <dl class="cs-list rv rv-d1">{services.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}</dl>
+    </div>
+  </section>
+
+  <section class="section cs-lug" id="equipaje">
+    <div class="wrap">
+      <div class="section-head rv"><h2>{t('sections.luggage')}</h2><p class="lead">{t('luggage.text')}</p></div>
+      <div class="rv rv-d1"><Luggage lang={lang} /></div>
+    </div>
+  </section>
+
+  <section class="section cs-line" id="linea">
+    <div class="wrap">
+      <div class="section-head rv"><h2>{t('sections.line')}</h2><p class="lead">{t('line.text')}</p></div>
+      <div class="rv rv-d1"><Linea lang={lang} /></div>
+      <div class="cs-arrive rv">
+        <h3>{t('sections.arrive')}</h3>
+        <ul>
+          <li>{t('arrive.tram', { stop: 'Mercado 3 de Noviembre', min: tram.min })}</li>
+          <li>{t('arrive.bus')}</li>
+          <li>{t('arrive.terminal', { km: km('terminal') })}</li>
+          <li>{t('arrive.airport', { km: km('aeropuerto') })}</li>
+        </ul>
+      </div>
+      <p class="rv"><a class="btn btn-lg" href={`${path(lang, 'rooms')}#availability`}>{t('bk.checkAvail')} <Icon name="arrowRight" size={18} /></a></p>
+    </div>
+  </section>
+</Layout>
+<style>
+  .cs-head { padding-top: calc(var(--header-h) + 32px); padding-bottom: clamp(40px, 6vw, 72px); }
+  .cs-head-in { display: grid; gap: 24px; }
+  .cs-head .section-head { margin: 0; }
+  .cs-head h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+  .cs-photo :global(.photo) { border-radius: 6px; }
+  .cs-photo .caption { margin: 10px 0 0; }
+  @media (min-width: 960px) { .cs-head-in { grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; } }
+  .cs-shared { background: var(--paper); }
+  .cs-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 220px)); gap: 16px; }
+  .cs-tiles :global(.photo) { border-radius: 6px; }
+  .cs-tiles span { display: block; margin-top: 8px; font-weight: 700; color: var(--ink); font-size: 0.95rem; }
+  .cs-cat { margin: 24px 0 0; max-width: 36em; }
+  @media (min-width: 720px) { .cs-tiles { grid-template-columns: repeat(4, minmax(0, 220px)); gap: 24px; } }
+  .cs-two { display: grid; gap: 24px; }
+  .cs-two .section-head { margin: 0; }
+  .cs-list { margin: 0; display: grid; gap: 16px 32px; }
+  .cs-list div { border-top: 1px solid var(--line); padding-top: 12px; }
+  .cs-list dt { font-family: var(--display); font-size: 1.3rem; font-weight: 600; color: var(--ink); }
+  .cs-list dd { margin: 4px 0 0; }
+  @media (min-width: 720px) { .cs-list { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 960px) { .cs-two { grid-template-columns: 1fr 2fr; gap: 64px; align-items: start; } }
+  .cs-serv, .cs-line { background: var(--paper); }
+  .cs-arrive { margin-block: 40px 28px; max-width: 44em; }
+  .cs-arrive h3 { margin-bottom: 10px; }
+  .cs-arrive ul { margin: 0; padding-inline-start: 1.1em; display: grid; gap: 6px; }
+</style>

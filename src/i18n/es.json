@@ -1,0 +1,353 @@
+{
+  "meta": {
+    "home": {
+      "title": "Tu Parada en Cuenca — casa de huéspedes cerca del Parque Calderón",
+      "desc": "Casa de huéspedes familiar en Cuenca, Ecuador: cuatro habitaciones con baño privado, cocina compartida, Wi‑Fi de fibra y guarda equipaje, a pocos minutos a pie del Parque Calderón. Reserva directo por WhatsApp."
+    },
+    "rooms": {
+      "title": "Habitaciones y disponibilidad — Tu Parada en Cuenca",
+      "desc": "Mini Suite AB, Mini Suite VT, Habitación Eco y Master Suite: fotos, camas, lo que hay en cada una y la tarifa por noche. Elige fechas y reserva directo con la casa."
+    },
+    "gallery": {
+      "title": "Fotos — Tu Parada en Cuenca",
+      "desc": "Las cuatro habitaciones, los baños, la sala, la cocina compartida, el patio y Miau, el gato de la casa."
+    },
+    "casa": {
+      "title": "La casa, la familia y la zona — Tu Parada en Cuenca",
+      "desc": "Quién vive en la casa, las reglas de convivencia, el guarda equipaje, las clases de español, la traductora y a cuántos minutos a pie queda cada cosa."
+    },
+    "enquire": {
+      "title": "Reservar — Tu Parada en Cuenca",
+      "desc": "Tus habitaciones, tus datos y la solicitud enviada a la casa por WhatsApp. Nada se cobra en esta web."
+    },
+    "notfound": {
+      "title": "Página no encontrada — Tu Parada en Cuenca",
+      "desc": "Esa página no existe."
+    }
+  },
+  "nav": {
+    "skip": "Saltar al contenido",
+    "home": "Inicio",
+    "rooms": "Habitaciones",
+    "gallery": "Fotos",
+    "casa": "La casa",
+    "enquire": "Reservar",
+    "menu": "Menú",
+    "close": "Cerrar",
+    "lang": "English",
+    "langLabel": "Cambiar de idioma",
+    "whatsapp": "WhatsApp",
+    "call": "Llamar",
+    "contact": "Contacto",
+    "follow": "Síguenos"
+  },
+  "hero": {
+    "eyebrow": "Casa de huéspedes · Cuenca · Ecuador",
+    "title": "Una casa de familia, a {min} minutos a pie del Parque Calderón",
+    "lead": "Cuatro habitaciones con baño privado en la casa donde vivimos: mi esposo, nuestras dos hijas, Miau el gato y yo. La cocina, el comedor, la sala y el patio se comparten. Quédate una noche o pregunta por la tarifa mensual.",
+    "cta": "Escríbenos por WhatsApp",
+    "photoCaption": "Master Suite",
+    "here": "Tu parada"
+  },
+  "sections": {
+    "rooms": "Las habitaciones",
+    "gallery": "Fotos",
+    "line": "A cuántos minutos queda cada cosa",
+    "house": "Una casa compartida",
+    "luggage": "Guarda equipaje",
+    "long": "Para quedarte un mes o más",
+    "rules": "Convivencia en casa",
+    "services": "Con qué te ayudamos",
+    "arrive": "Cómo llegar",
+    "practical": "Lo práctico"
+  },
+  "rooms": {
+    "intro": "Cuatro habitaciones, cada una con su baño privado, Wi‑Fi de fibra, nevera y escritorio. Tres tienen el baño dentro; la Habitación Eco lo tiene al frente, solo para ella.",
+    "all": "Todas las habitaciones",
+    "shared": "Lo que se comparte",
+    "sharedText": "La sala con chimenea, la cocina equipada, el comedor y el patio con BBQ son de todos: de la familia y de los huéspedes. Cocinas lo tuyo, comes en la mesa grande y, si quieres, conversas.",
+    "mini-suite-ab": {
+      "name": "Mini Suite AB",
+      "short": "Cama individual, mesón con lavabo y baño dentro",
+      "desc": "Para una persona. Cama individual, un mesón con lavabo, hervidor, tostadora y nevera, escritorio de trabajo y el baño dentro de la suite."
+    },
+    "mini-suite-vt": {
+      "name": "Mini Suite VT",
+      "short": "Cama doble, mini cocina y baño dentro",
+      "desc": "Para una o dos personas. Cama doble, mini cocina con licuadora, tetera y vajilla, escritorio, nevera y el baño dentro de la suite."
+    },
+    "eco": {
+      "name": "Habitación Eco",
+      "short": "Cama doble para una persona, baño privado al frente",
+      "desc": "Para una persona. Cama doble, nevera, tetera y escritorio. El baño es privado y queda justo frente a la habitación."
+    },
+    "master-suite": {
+      "name": "Master Suite",
+      "short": "Cama doble, clóset grande, comedor y baño dentro",
+      "desc": "La más amplia, para una o dos personas. Cama doble, clóset de pared a pared, escritorio de trabajo y otro de lectura, mesa de comedor, nevera, cafetería y el baño dentro de la suite."
+    }
+  },
+  "gallery": {
+    "intro": "Las fotos son de la casa, tal como está. Las habitaciones primero, luego los baños y los espacios que se comparten.",
+    "all": "Todas",
+    "room": "Habitaciones",
+    "bathroom": "Baños",
+    "house": "La casa",
+    "counter": "{n} / {total}",
+    "open": "Abrir foto",
+    "close": "Cerrar",
+    "prev": "Foto anterior",
+    "next": "Foto siguiente",
+    "drag": "Arrastra"
+  },
+  "line": {
+    "text": "La casa está en Estévez de Toral y Pío Bravo, en el borde norte del centro histórico. Las distancias se miden desde la puerta; los minutos son a paso normal.",
+    "here": "Tu parada",
+    "hereSub": "Estévez de Toral 13-90",
+    "onFoot": "{min} min a pie",
+    "metres": "{m} m",
+    "km": "{km} km",
+    "walk": "A pie",
+    "ride": "En tranvía, bus o taxi",
+    "near": "A dos calles del SuperAki y a pocos pasos de cajero, panaderías, restaurante, farmacia, frutería y lavandería.",
+    "open": "Abrir en Google Maps",
+    "directions": "Cómo llegar"
+  },
+  "house": {
+    "text": "No es un hotel: es nuestra casa. Mi esposo y mis dos hijas te reciben como parte de la familia, y toda la propiedad se comparte entre anfitriones y huéspedes.",
+    "cat": "Miau es el gato de la casa. Es muy cariñoso y suele recibir a quien llega.",
+    "guests": "Han pasado por la mesa huéspedes de Rusia, Alemania, Inglaterra, Francia, Chile y Estados Unidos.",
+    "more": "Conoce la casa"
+  },
+  "long": {
+    "text": "Si vienes a Cuenca por un mes o más —a trabajar en remoto, a estudiar español o a hacer tus trámites de visa— pregunta por la tarifa mensual.",
+    "wifi": "{down} Mbps de bajada y {up} de subida, medidos en la casa",
+    "wifiLabel": "Wi‑Fi de fibra",
+    "desk": "Escritorio en todas las habitaciones",
+    "kitchen": "Cocina compartida para preparar lo tuyo",
+    "discount": "{percent}% de descuento desde {nights} noches",
+    "ask": "Preguntar por la tarifa mensual",
+    "waMonthly": "Hola Tu Parada en Cuenca, quisiera preguntar por la tarifa mensual."
+  },
+  "luggage": {
+    "text": "¿Llegas temprano, sales tarde o solo estás de paso? Deja tus maletas en la casa y recorre Cuenca sin peso. No hace falta estar hospedado.",
+    "hours": "Todos los días, de {open} a {close}",
+    "perDay": "US${n} por día",
+    "xs": { "name": "Muy pequeña", "what": "Bolsos pequeños, bolsas tote" },
+    "s": { "name": "Pequeña", "what": "Mochilas pequeñas" },
+    "m": { "name": "Mediana", "what": "Equipaje de mano, maletas de cabina" },
+    "l": { "name": "Grande", "what": "Maletas, equipaje facturado" },
+    "ask": "Avisar que llevo equipaje",
+    "wa": "Hola Tu Parada en Cuenca, quisiera dejar equipaje en la casa."
+  },
+  "rules": {
+    "intro": "Cuidamos este hogar para que todos tengan una estancia tranquila.",
+    "items": [
+      ["No fumar", "En ninguna área de la casa."],
+      ["Pantuflas", "Dentro de la casa se usan pantuflas."],
+      ["Sin drogas ni alcohol", "Para una convivencia sana y respetuosa."],
+      ["Silencio a las 23:00", "Para el descanso de todos."],
+      ["Movimiento desde las 6:00", "A esa hora empieza el día en la casa."],
+      ["Tu habitación, limpia", "Cuidamos juntos el hogar."],
+      ["Cocina, comedor y sala", "Son compartidos: se usan con responsabilidad y respeto."],
+      ["Hay un gato", "Miau vive aquí y también te dará la bienvenida."]
+    ]
+  },
+  "services": {
+    "items": [
+      ["Traductora español–inglés", "Te acompaña a trámites de visa, compras, citas médicas y citas en el banco."],
+      ["Clases de español", "En la casa, a tu ritmo."],
+      ["Pintura y cocina", "Actividades con la familia."],
+      ["Paseos programados", "Salidas organizadas por Cuenca y sus alrededores."]
+    ],
+    "ask": "Preguntar por un servicio",
+    "wa": "Hola Tu Parada en Cuenca, quisiera preguntar por sus servicios."
+  },
+  "arrive": {
+    "tram": "En tranvía: baja en la parada {stop}, a {min} minutos a pie.",
+    "bus": "En bus urbano: las líneas 8 y 27 paran en Pío Bravo, a la vuelta de la casa.",
+    "terminal": "Desde el Terminal Terrestre: {km} km.",
+    "airport": "Desde el Aeropuerto Mariscal Lamar: {km} km."
+  },
+  "enquire": {
+    "waIntro": "Hola Tu Parada en Cuenca, quisiera consultar por una estadía."
+  },
+  "footer": {
+    "address": "Estévez de Toral 13-90 y Pío Bravo, Cuenca, Ecuador",
+    "rights": "Tu Parada en Cuenca",
+    "maps": "Google Maps",
+    "hours": "Atención de {open} a {close}, de lunes a domingo",
+    "wa247": "WhatsApp las 24 horas",
+    "where": "Dónde estamos"
+  },
+  "notfound": {
+    "title": "Esta página no está aquí",
+    "text": "Puede que el enlace sea antiguo. Las habitaciones y las fotos están a un toque.",
+    "home": "Volver al inicio"
+  },
+  "common": {
+    "photoOf": "Foto de {what}",
+    "section": "Sección",
+    "back": "Volver",
+    "and": " y "
+  },
+  "bk": {
+    "search": "Buscar",
+    "checkAvail": "Ver disponibilidad",
+    "guests": "Huéspedes",
+    "checkin": "Entrada",
+    "checkout": "Salida",
+    "adults": "Adultos",
+    "children": "Niños",
+    "childrenHint": "De 0 a 12 años",
+    "done": "Listo",
+    "adultsN": "1 adulto|{n} adultos",
+    "childrenN": "1 niño|{n} niños",
+    "noChildren": "sin niños",
+    "nightsN": "1 noche|{n} noches",
+    "roomsN": "1 habitación|{n} habitaciones",
+    "photosN": "1 foto|{n} fotos",
+    "guestsN": "1 persona|{n} personas",
+    "availTitle": "Disponibilidad",
+    "availFor": "{nights} · {in} – {out} · {party}",
+    "changeSearch": "Cambiar búsqueda",
+    "colRoom": "Habitación",
+    "colSleeps": "Para",
+    "colPrice": "Tarifa por noche",
+    "colChoices": "Incluye",
+    "colSelect": "Elegir",
+    "price": "A consultar",
+    "priceNote": "Te decimos la tarifa por WhatsApp",
+    "priceUsd": "US${n}",
+    "priceOne": "1 persona",
+    "priceTwo": "2 personas",
+    "priceNight": "por noche",
+    "chWifi": "Wi‑Fi de fibra incluido",
+    "chKitchen": "Cocina, sala y patio compartidos",
+    "chNoCard": "Nada se cobra en esta web",
+    "chConfirm": "La casa confirma por WhatsApp",
+    "reserve": "Reservar",
+    "reserveNote": "Nada se cobra en esta web",
+    "selected": "{rooms} por {nights}",
+    "selNone": "Elige una habitación para continuar",
+    "capacity": "Estas habitaciones son para {n} y ustedes son {m}. Agrega una habitación o cambia el número de huéspedes.",
+    "pickRoom": "Elige al menos una habitación.",
+    "sleepsN": "Para {n}",
+    "sleeps1": "1 persona",
+    "sleeps2": "1 o 2 personas",
+    "roomDetails": "Ver la habitación",
+    "bath": {
+      "ensuite": "Baño privado dentro",
+      "across": "Baño privado al frente"
+    },
+    "taken": "Ocupada en estas fechas",
+    "takenNote": "Prueba otras fechas u otra habitación.",
+    "feedOff": "La disponibilidad la confirma la casa por WhatsApp.",
+    "q": {
+      "nightly": "{rate} × {nights}",
+      "discount": "Descuento por larga estadía ({percent}%)",
+      "total": "Total estimado",
+      "onRequest": "La casa te envía el total por WhatsApp",
+      "note": "El total lo confirma la casa."
+    },
+    "beds": {
+      "double": "1 cama doble|{n} camas dobles",
+      "single": "1 cama individual|{n} camas individuales"
+    },
+    "f": {
+      "kitchenette": "Mini cocina",
+      "coffee": "Cafetería",
+      "kettle": "Hervidor",
+      "fridge": "Nevera",
+      "desk": "Escritorio de trabajo",
+      "reading": "Escritorio de lectura",
+      "dining": "Mesa de comedor",
+      "closet": "Clóset grande",
+      "wifi": "Wi‑Fi de fibra"
+    },
+    "steps": [
+      "Tu selección",
+      "Tus datos",
+      "Último paso"
+    ],
+    "yourBooking": "Tu reserva",
+    "totalStay": "Duración de la estadía",
+    "youSelected": "Elegiste",
+    "change": "Cambiar la selección",
+    "editDates": "Cambiar fechas",
+    "detailsTitle": "Tus datos",
+    "detailsLead": "Ya casi. Completa lo de abajo; en el siguiente paso ves la solicitud antes de enviarla.",
+    "first": "Nombre",
+    "last": "Apellido",
+    "email": "Correo electrónico",
+    "optional": "opcional",
+    "phone": "Celular, con código de país",
+    "phoneHint": "La casa te responde por WhatsApp a este número.",
+    "arrival": "Tu hora de llegada",
+    "arrivalHint": "La casa atiende de {open} a {close}, todos los días.",
+    "arrivalUnknown": "Todavía no lo sé",
+    "arrivalLate": "Después de las 22:00",
+    "luggage": "Equipaje",
+    "luggageYes": "Quiero dejar equipaje antes de la entrada o después de la salida",
+    "requests": "Algo más",
+    "requestsPh": "Estadía de un mes, clases de español, llegada tarde…",
+    "requestsHint": "La casa te dirá qué puede hacer.",
+    "next": "Siguiente: último paso",
+    "back": "Atrás",
+    "finalTitle": "Revisa tu solicitud",
+    "finalLead": "Nada se cobra aquí. Al enviar se abre WhatsApp con la solicitud ya escrita; la casa responde con la disponibilidad y el total, y la reserva queda hecha cuando ellos la confirman.",
+    "send": "Enviar por WhatsApp",
+    "copy": "Copiar la solicitud",
+    "copied": "Copiada",
+    "or": "o llama al {phone}",
+    "errRooms": "Elige al menos una habitación.",
+    "errName": "Escribe tu nombre y tu apellido.",
+    "errPhone": "Escribe un celular con código de país, por ejemplo +1 956 555 0123.",
+    "errEmail": "Ese correo no parece correcto.",
+    "wa": {
+      "intro": "Hola Tu Parada en Cuenca, quisiera reservar:",
+      "in": "Entrada",
+      "out": "Salida",
+      "stay": "Estadía",
+      "guests": "Huéspedes",
+      "rooms": "Habitaciones",
+      "total": "Total estimado en la web",
+      "name": "Nombre",
+      "phone": "Celular",
+      "email": "Correo",
+      "arrival": "Llegada",
+      "luggage": "Guarda equipaje",
+      "req": "Notas",
+      "from": "Enviado desde la web"
+    },
+    "hl": {
+      "title": "Lo que más pesa",
+      "walk": "{min} minutos a pie del Parque Calderón",
+      "bath": "Baño privado en las cuatro habitaciones",
+      "wifi": "Fibra de {down} Mbps",
+      "shared": "Cocina, sala con chimenea y patio con BBQ",
+      "long": "Tarifa mensual para estadías largas"
+    },
+    "fac": {
+      "title": "En la casa",
+      "wifi": "Wi‑Fi de fibra",
+      "kitchen": "Cocina compartida",
+      "living": "Sala de estar",
+      "bbq": "Patio y BBQ",
+      "luggage": "Guarda equipaje",
+      "spanish": "Clases de español",
+      "translator": "Traductora",
+      "cat": "Gato en casa"
+    },
+    "showMap": "Ver en el mapa",
+    "reserveBtn": "Reservar",
+    "allPhotos": "Las {n} fotos",
+    "roomPage": {
+      "facilities": "En la habitación",
+      "bedsTitle": "Camas",
+      "reserveThis": "Reservar esta habitación",
+      "others": "Otras habitaciones"
+    },
+    "endLead": "Elige fechas y habitación, agrega tus datos y la solicitud llega a la casa por WhatsApp. Nada se cobra en esta web: la casa responde con la disponibilidad y el total."
+  }
+}

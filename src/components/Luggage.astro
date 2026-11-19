@@ -1,0 +1,49 @@
+---
+/** Luggage storage: the four sizes and their price per day, as the house's own flyer lists them. */
+import { useT, type Lang } from '../i18n';
+import { LUGGAGE, SITE } from '../data/site';
+import { waUrl } from '../lib/wa';
+import Icon from './Icon.astro';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const { t } = useT(lang);
+// the four cases drawn at their relative sizes
+const H = { xs: 30, s: 42, m: 56, l: 72 } as const;
+---
+<div class="lug">
+  <ul class="lug-list">
+    {LUGGAGE.map((l) => (
+      <li>
+        <svg class="lug-art" viewBox="0 0 60 84" width="60" height="84" aria-hidden="true">
+          <g transform={`translate(${30 - H[l.id] * 0.33}, ${80 - H[l.id]})`} fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+            <path d={`M${H[l.id] * 0.2} 0v-6h${H[l.id] * 0.26}v6`} />
+            <rect x="0" y="0" width={H[l.id] * 0.66} height={H[l.id]} rx="5" class="lug-body" />
+          </g>
+        </svg>
+        <div>
+          <strong>{t(`luggage.${l.id}.name`)}</strong>
+          <span>{t(`luggage.${l.id}.what`)}</span>
+        </div>
+        <b>{t('luggage.perDay', { n: l.price })}</b>
+      </li>
+    ))}
+  </ul>
+  <div class="lug-side">
+    <p class="lug-hours"><Icon name="clock" size={18} /> {t('luggage.hours', { open: SITE.hours.open, close: SITE.hours.close })}</p>
+    <a class="btn btn-wa" href={waUrl(t('luggage.wa'))} target="_blank" rel="noopener"><Icon name="whatsapp" /> {t('luggage.ask')}</a>
+  </div>
+</div>
+<style>
+  .lug { display: grid; gap: 24px; }
+  .lug-list { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+  .lug-list li { display: grid; grid-template-columns: 60px 1fr auto; gap: 14px; align-items: end; padding-block: 10px 14px; border-bottom: 1px solid var(--line); }
+  .lug-art { color: var(--ink); }
+  .lug-body { fill: var(--gold); }
+  .lug-list div { display: grid; gap: 1px; padding-bottom: 2px; }
+  .lug-list strong { font-family: var(--display); font-size: 1.35rem; font-weight: 600; color: var(--ink); line-height: 1.2; }
+  .lug-list span { font-size: 0.92rem; color: var(--muted); }
+  .lug-list b { font-size: 1.05rem; color: var(--ink); white-space: nowrap; padding-bottom: 2px; }
+  .lug-side { display: grid; gap: 12px; justify-items: start; align-content: start; }
+  .lug-hours { margin: 0; display: flex; align-items: center; gap: 8px; font-weight: 600; color: var(--ink); }
+  @media (min-width: 900px) { .lug { grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: start; } }
+</style>
